@@ -1,5 +1,8 @@
 const cds = require("@sap/cds");
 const logger = cds.log('capb2b')
+
+const {Books} = cds.entities('bookshop');
+
 module.exports = cds.service.impl ( function(){
     // console.log("Again something is written here as an Anonymous functions!!!");
     // this.on("READ","Books", function(req,next){
@@ -23,8 +26,13 @@ module.exports = cds.service.impl ( function(){
             })
         }
     }
+
+    this.on('totalStock', ()=>{
+        return 54
+    })
+
 // Test change
-    this.after("READ","Books",(data)=>{
+    this.after("READ",Books,(data)=>{
         changeData(data);
         logger(data);
     })
