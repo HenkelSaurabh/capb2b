@@ -1,0 +1,37 @@
+{
+  "name": "capb2b-main",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "cap-listening-plugin": "github:qmacro/cap-listening-plugin"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "[testing]": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "bookshop.sqlite"
+          }
+        },
+        "[development]": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        }
+      }
+    }
+  }
+}
