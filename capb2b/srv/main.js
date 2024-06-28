@@ -29,8 +29,9 @@ module.exports = cds.service.impl ( function(){
         }
     }
 
-    this.on('totalStock', ()=>{
-        return 54
+    this.on('totalStock', async()=>{
+        const result = await SELECT .one .from(Books) .columns('sum(stock) as TotalStock');
+        return result.TotalStock;
     })
 
 // Test change

@@ -5,7 +5,8 @@ using {cuid} from '@sap/cds/common';
 entity Books : cuid {
   name  : String;
   author : Association to Authors;
-  stock: Integer
+  stock: Integer;
+  price: Integer;
 // author_foreign_key : type of Authors:ID;
 // author: Association to Authors on author.ID = author_foreign_key;
 }
