@@ -58,3 +58,5 @@ module.exports = cds.service.impl(function () {
         return SELECT .from(Books, id);
     })
 })
+
+// curl --header "Content-Type: application/json" --data '{"price":2020}' --silent --url http://localhost:4004/odata/v4/bookshop/Books/dc3c659f-29c5-4b21-b3b0-44c58bae5306/updatePrice | jq
