@@ -46,4 +46,15 @@ module.exports = cds.service.impl(function () {
         changeData(data);
         logger(data);
     })
+
+    this.on("updatePrice", Books, async req=>{
+        const id = req.params[0];
+        logger(req.data)
+        console.log(req.params[0])
+
+        await UPDATE (Books,id) .with({
+            price: req.data.price
+        })
+        return SELECT .from(Books, id);
+    })
 })

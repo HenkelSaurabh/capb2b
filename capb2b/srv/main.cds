@@ -8,7 +8,8 @@ service bookshop {
     //entity Books as projection on saurabh.kabra.Books;
     entity Books as select from saurabh.kabra.Books where stock >= 33
         actions {
-            function stockValue() returns Integer
+            function stockValue() returns Integer;
+            action updatePrice(price: Integer) returns Books;
         };
 
     entity Authors as projection on saurabh.kabra.Authors;
